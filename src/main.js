@@ -28,7 +28,7 @@ function main () {
     
     const gameScreen = buildDom(`
     <section class="game-container">
-      <h1>GAME SCREEN</h1>
+      <h1>Game Screen</h1>
       <button id="game-over-test">GAME OVER : ( </button>
     </section>  
     `);
@@ -40,7 +40,7 @@ function main () {
   function buildGameOverScreen () {
     const gameOverScreen = buildDom(`
     <section class="game-container">
-      <h1>GAME OVER</h1>
+      <h1>Game Over</h1>
       <button class="restart-button">Play Again</button>
       <button class="splash-screen">Initial Screen</button>
     </section>
