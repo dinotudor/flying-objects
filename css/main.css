@@ -8,3 +8,8 @@ body{
   height: 100vh;
   border: 1px solid #000;
 }
+
+/* PROVISORY JUST TO GIVE SOME SPACE FROM THE BORDER */
+section {
+  padding: 10px;
+}
