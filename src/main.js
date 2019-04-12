@@ -13,15 +13,32 @@ function main () {
     const splashScreen = buildDom(`
     <section>
       <h1>Flying Objects</h1>
-      <button>START GAME</button>
+      <button class="start-button">START GAME</button>
     </sectin>
       `);
     
+    const startButton = document.querySelector('.start-button');
 
+    startButton.addEventListener( 'click', buildGameScreen);
     
 
-
   }
+
+  function buildGameScreen (){
+    
+    const gameScreen = buildDom(`
+    <section class="game-container">
+      <h1>GAME</h1>
+      <button id="game-over-test">GAME OVER : ( </button>
+    </section>  
+    `);
+
+    const gameOverTest = document.querySelector('#game-over-test');
+    gameOverTest.addEventListener('click', buildGameOverScreen);
+  }
+
+  
+
 
   buildSplashScreen();
 
