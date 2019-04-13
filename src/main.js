@@ -43,6 +43,21 @@ function main () {
     const game = new Game(canvasElement);
     game.startLoop();
 
+    document.addEventListener('keydown', function(event){
+      if (event.keyCode === 37) {
+        game.player.move(-1);
+      } else if (event.keyCode === 39) {
+        game.player.move(1);
+      }
+    })
+
+    document.addEventListener('keyup', function(event){
+      if (event.keyCode === 37 || event.keyCode === 39) {
+        game.player.move(0);
+      }
+  })
+  
+
 
 
 /*     const gameOverTest = document.querySelector('#game-over-test');
