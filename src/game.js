@@ -10,9 +10,11 @@ function Game (canvas) {
 Game.prototype.startLoop = function () {
     console.log('HELLO!')
     this.player = new Player(this.canvas);
-
+    for (var i =0; i<10; i++) {
+      this.enemies.push(new Enemy(this.canvas, i*50));
+    }
+    
     const loop = () => {
-
       this.clearCanvas();
       this.updateCanvas();
       this.drawCanvas();
@@ -31,10 +33,17 @@ Game.prototype.clearCanvas = function (){
 
 Game.prototype.updateCanvas = function () {
   this.player.update();
+  this.enemies.forEach(function(enemy){
+    enemy.update();
+  });
+
 }
 
 Game.prototype.drawCanvas = function () {
   this.player.draw();
+  this.enemies.forEach(function(enemy){
+    enemy.draw();
+  });
 }
 
 
