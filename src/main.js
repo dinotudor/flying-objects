@@ -28,13 +28,26 @@ function main () {
     
     const gameScreen = buildDom(`
     <section class="game-container">
-      <h1>Game Screen</h1>
-      <button id="game-over-test">GAME OVER : ( </button>
+      <canvas><h1>GAME</h1></canvas>
     </section>  
     `);
 
-    const gameOverTest = document.querySelector('#game-over-test');
-    gameOverTest.addEventListener('click', buildGameOverScreen);
+    const gameContainerElement = document.querySelector('.game-container');
+    const width = gameContainerElement.offsetWidth;
+    const height = gameContainerElement.offsetHeight;
+
+    const canvasElement = document.querySelector('canvas');
+    canvasElement.setAttribute('width', width);
+    canvasElement.setAttribute('height', height);
+
+    const game = new Game(canvasElement);
+    game.startLoop();
+
+
+
+
+/*     const gameOverTest = document.querySelector('#game-over-test');
+    gameOverTest.addEventListener('click', buildGameOverScreen); */
   }
 
   function buildGameOverScreen () {

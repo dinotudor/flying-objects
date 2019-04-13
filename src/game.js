@@ -7,3 +7,18 @@ function Game (canvas) {
   this.isGameOver = false;
 }
 
+Game.prototype.startLoop = function () {
+    console.log('HELLO!')
+  }
+
+Game.prototype.clearCanvas = function (){
+  console.log('CLEAR CANVAS');
+}
+
+Game.prototype.update = function () {
+  console.log('UPDATE');
+}
+
+Game.prototype.draw = function () {
+  console.log('DRAW');
+}
