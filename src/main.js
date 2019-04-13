@@ -28,7 +28,7 @@ function main () {
     
     const gameScreen = buildDom(`
     <section class="game-container">
-      <canvas><h1>GAME</h1></canvas>
+      <canvas></canvas>
     </section>  
     `);
 
@@ -42,7 +42,6 @@ function main () {
 
     const game = new Game(canvasElement);
     game.startLoop();
-
 
 
 

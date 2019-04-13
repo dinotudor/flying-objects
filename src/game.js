@@ -9,16 +9,34 @@ function Game (canvas) {
 
 Game.prototype.startLoop = function () {
     console.log('HELLO!')
-  }
+    this.player = new Player(this.canvas);
+
+    const loop = () => {
+      this.clearCanvas();
+      this.updateCanvas();
+      this.drawCanvas();
+
+      if (this.gameOver === false) {
+        window.requestAnimationFrame(loop)
+      }
+    } 
+
+    window.requestAnimationFrame(loop)
+}
 
 Game.prototype.clearCanvas = function (){
-  console.log('CLEAR CANVAS');
+  this.ctx.clearRect(0,0, this.canvas.width, this.canvas.height);
 }
 
-Game.prototype.update = function () {
-  console.log('UPDATE');
+Game.prototype.updateCanvas = function () {
+  this.player.update();
 }
 
-Game.prototype.draw = function () {
-  console.log('DRAW');
+Game.prototype.drawCanvas = function () {
+  this.player.draw();
 }
+
+
+
+
+
