@@ -7,7 +7,7 @@ function Player (canvas) {
   this.x = this.canvas.width/2;
   this.y = this.canvas.height-50;
   this.ctx = this.canvas.getContext('2d');
-  this.speed = 3;
+  this.speed = 8;
   this.direction = 0;
 }
 
@@ -22,4 +22,17 @@ Player.prototype.update = function () {
 
 Player.prototype.move = function (newDirection) {
   this.direction = newDirection;
+}
+
+Player.prototype.setLives = function(){
+  this.lives --;
+}
+
+Player.prototype.checkCollisionWithEnemy = function(enemy){
+  const collisionRigth = this.x + this.size/2 > enemy.x - enemy.size/2;
+  const collisionLeft = this.x - this.size/2 < enemy.x + enemy.size/2;
+  const collisionTop = this.y - this.size/2 < enemy.y + enemy.size/2;
+  const collisionBottom = this.y + this.size/2 > enemy.y - enemy.size/2;
+
+  return collisionRigth && collisionLeft && collisionTop && collisionBottom;
 }

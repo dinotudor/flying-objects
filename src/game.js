@@ -18,7 +18,7 @@ Game.prototype.startLoop = function () {
     
     const loop = () => {
 
-      if(Math.random() > 0.97){
+      if(Math.random() > 0.98){
         const randomNumber = (Math.random() * this.canvas.width - 15) + 15;
         this.enemies.push(new Enemy(this.canvas, randomNumber))
       }
@@ -26,6 +26,7 @@ Game.prototype.startLoop = function () {
       this.clearCanvas();
       this.updateCanvas();
       this.drawCanvas();
+      this.checkCollisions();
 
       if (this.isGameOver === false) {
         window.requestAnimationFrame(loop)
@@ -52,6 +53,26 @@ Game.prototype.drawCanvas = function () {
   this.enemies.forEach(function(enemy){
     enemy.draw();
   });
+}
+
+Game.prototype.checkCollisions = function(){
+  this.enemies.forEach((enemy, index) => {
+    const isColliding = this.player.checkCollisionWithEnemy(enemy);
+    if (isColliding) {
+      
+      this.enemies.splice(index,1);
+      this.player.setLives();
+      if (this.player.lives === 0){
+        this.isGameOver = true;
+        this.buildGameOverScreen();
+      }
+      console.log(this.player.lives);
+    }
+  })
+}
+
+Game.prototype.setGameOverCallBack = function(buildGameOverScreen) {
+  this.buildGameOverScreen = buildGameOverScreen;
 }
 
 
