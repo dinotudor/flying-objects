@@ -1,31 +1,42 @@
 body{
+  font-family: 'Press Start 2P', cursive;
   margin: 5px;
   padding: 0;
 }
 
 .game-container {
-  width: 98%;
-  height: 90vh;
-  border: 1px solid #000;
   text-align: center;
   background: #000;
+  width: 98%;
+  height: 90vh;
+  border: 1px solid #fff;
 }
-
+p {
+  color: #fff;
+  font-size: 0.8rem;
+}
 button {
+  margin: 10px 0;
+  font-family: 'Press Start 2P', cursive;
   padding: 10px;
   border-radius: 10px;
-  font-size: 1.5em;
+  font-size: 1.1em;
   font-weight: bold;
-  background: blue;
+  background: green;
   border: none;
   color: white;
 
 }
 
+/* .restart-button {
+  margin: 10px 0;
+} */
+
 h1 {
   background: #000;
   color: #fff;
 }
+
 /* PROVISORY JUST TO GIVE SOME SPACE FROM THE BORDER */
 section {
   padding: 10px;

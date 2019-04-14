@@ -12,8 +12,9 @@ function main () {
   function buildSplashScreen () {
     const splashScreen = buildDom(`
     <section class="game-container">
-      <h1>Flying Objects - Splash Screen</h1>
+      <h1>undefined objects</h1>
       <button class="start-button">START GAME</button>
+      <p>'< left arrow '  '> right arrow' 'space bar shoot'</p>  
     </sectin>
       `);
     
