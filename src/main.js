@@ -69,7 +69,7 @@ function main () {
     const gameOverScreen = buildDom(`
     <section class="game-container">
       <h1>Game Over</h1>
-      <button class="restart-button">Play Again</button>
+      <button class="restart-button">Play Again</button><br />
       <button class="splash-screen">Initial Screen</button>
     </section>
     `);
