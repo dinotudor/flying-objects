@@ -18,3 +18,12 @@ Enemy.prototype.draw = function(){
 Enemy.prototype.update = function(){
   this.y = this.y + this.direction * this.speed;
 }
+
+Enemy.prototype.checkHitByBullet = function(bullet){
+  const collisionRigth = this.x + this.size/2 > bullet.x - bullet.size/2;
+  const collisionLeft = this.x - this.size/2 < bullet.x + bullet.size/2;
+  const collisionTop = this.y - this.size/2 < bullet.y + bullet.size/2;
+  const collisionBottom = this.y + this.size/2 > bullet.y - bullet.size/2;
+
+  return collisionRigth && collisionLeft && collisionTop && collisionBottom;
+}

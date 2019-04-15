@@ -36,3 +36,4 @@ Player.prototype.checkCollisionWithEnemy = function(enemy){
 
   return collisionRigth && collisionLeft && collisionTop && collisionBottom;
 }
+

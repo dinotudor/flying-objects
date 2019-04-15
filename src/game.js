@@ -19,7 +19,7 @@ Game.prototype.startLoop = function () {
     
     const loop = () => {
 
-      if(Math.random() > 0.99){
+      if(Math.random() > 0.98){
         const randomNumber = (Math.random() * this.canvas.width - 15) + 15;
         this.enemies.push(new Enemy(this.canvas, randomNumber))
       }
@@ -66,24 +66,21 @@ Game.prototype.drawCanvas = function () {
 }
 
 Game.prototype.clearEnemy = function (enemy){
-  // filter
-  //const enemiesFiltered = this.enemies.filter( (enemy) => {
     return (enemy.y + enemy.size) > this.canvas.height;
-  //})
-  // this.enemies = enemiesFiltered;
 }
 
-/* Game.prototype.clearShots = function (){
-
-} */
+Game.prototype.clearShots = function (bullet){
+    return (bullet.y - bullet.size) < 0; 
+}
 
 Game.prototype.checkCollisions = function(){
-  this.enemies.forEach((enemy, index) => {
+  this.enemies.forEach((enemy, enemyIndex) => {
     const isColliding = this.player.checkCollisionWithEnemy(enemy);
     const isOutOfScreen = this.clearEnemy(enemy);
+    //const shotOutTheScreen = this.clearShots()
     
     if (isColliding) {
-      this.enemies.splice(index,1);
+      this.enemies.splice(enemyIndex,1);
       this.player.setLives();
       if (this.player.lives === 0){
         this.isGameOver = true;
@@ -93,11 +90,26 @@ Game.prototype.checkCollisions = function(){
     }
 
     if (isOutOfScreen) {
-      let removed = this.enemies.splice(index,1);      
-      console.log('removed', removed);
-      
+      let removed = this.enemies.splice(enemyIndex,1);      
+      //console.log('removed', removed);
     }
+    this.bullets.forEach((bullet, bulletIndex) => {
+      const isHitEnemy = enemy.checkHitByBullet(bullet);
+      if (isHitEnemy) {
+        this.enemies.splice(enemyIndex,1);
+        this.bullets.splice(bulletIndex,1);
+      }
+    });
+
   })
+
+  this.bullets.forEach( (bullet, index) => {
+    const isOutOfScreen = this.clearShots(bullet);
+    if (isOutOfScreen) {
+      this.bullets.splice(index, 1);
+      console.log('remove bullet', isOutOfScreen);
+    }
+  });
 }
 
 Game.prototype.setGameOverCallBack = function(buildGameOverScreen) {
