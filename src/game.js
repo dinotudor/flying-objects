@@ -8,6 +8,7 @@ function Game (canvas) {
   this.bullets = [];
   this.bullet = null;
   this.isGameOver = false;
+  this.score = 0;
 }
 
 Game.prototype.startLoop = function () {
@@ -98,6 +99,8 @@ Game.prototype.checkCollisions = function(){
       if (isHitEnemy) {
         this.enemies.splice(enemyIndex,1);
         this.bullets.splice(bulletIndex,1);
+        this.score += 100;
+        console.log(this.score);
       }
     });
 
