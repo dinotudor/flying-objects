@@ -38,7 +38,7 @@ Game.prototype.startLoop = function () {
 }
 
 Game.prototype.shoot = function (){
-  this.bullets.push(new Bullet (this.canvas, this.player.x))
+  this.bullets.push(new Bullet (this.canvas, this.player.x));
 }
 
 Game.prototype.clearCanvas = function (){
@@ -50,13 +50,18 @@ Game.prototype.updateCanvas = function () {
   this.enemies.forEach(function(enemy){
     enemy.update();
   });
-
+  this.bullets.forEach(function(bullet) {
+    bullet.update();
+  });
 }
 
 Game.prototype.drawCanvas = function () {
   this.player.draw();
   this.enemies.forEach(function(enemy){
     enemy.draw();
+  });
+  this.bullets.forEach(function(bullet){
+    bullet.draw();
   });
 }
 

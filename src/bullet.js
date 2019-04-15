@@ -12,9 +12,9 @@ function Bullet(canvas, x) {
 
 Bullet.prototype.draw = function(){
   this.ctx.fillStyle = 'white';
-  this.ctx.fillRect(this.x - this.size/2, this.y -this.size/2, this.size, this.size);
+  this.ctx.fillRect(this.x - this.size/2, this.y - this.size/2, this.size, this.size);
 }
 
 Bullet.prototype.update = function(){
-  this.y = this.y + this.direction * this.speed
+  this.y = this.y - this.direction * this.speed
 }
