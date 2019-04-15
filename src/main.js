@@ -29,11 +29,15 @@ function main () {
     
     const gameScreen = buildDom(`
     <section class="game-container">
+        <p class="points">0</p>
+        <p class="lives">3</p>
       <canvas></canvas>
     </section>  
     `);
 
     const gameContainerElement = document.querySelector('.game-container');
+    const livesElemtn = document.querySelector('.lives')
+    const pointsElement = document.querySelector('.points')
     const width = gameContainerElement.offsetWidth;
     const height = gameContainerElement.offsetHeight;
 
@@ -44,6 +48,8 @@ function main () {
     const game = new Game(canvasElement);
     game.startLoop();
     game.setGameOverCallBack(buildGameOverScreen);
+    game.setUpdateMarkersCallback(updateMarkers);
+
     document.addEventListener('keydown', function(event){
       if (event.keyCode === 37) {
         game.player.move(-1);
@@ -64,6 +70,14 @@ function main () {
       game.shoot();
     }
   });
+
+
+
+  function updateMarkers(lives, points) {
+    livesElemtn.innerHTML = lives;
+    pointsElement.innerHTML = points;
+
+  }
   
   
 

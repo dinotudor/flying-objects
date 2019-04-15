@@ -9,6 +9,7 @@ function Game (canvas) {
   this.bullet = null;
   this.isGameOver = false;
   this.score = 0;
+  this.updateMarkers = null;
 }
 
 Game.prototype.startLoop = function () {
@@ -83,6 +84,7 @@ Game.prototype.checkCollisions = function(){
     if (isColliding) {
       this.enemies.splice(enemyIndex,1);
       this.player.setLives();
+      this.updateMarkers(this.player.lives, this.score)
       if (this.player.lives === 0){
         this.isGameOver = true;
         this.buildGameOverScreen();
@@ -100,6 +102,7 @@ Game.prototype.checkCollisions = function(){
         this.enemies.splice(enemyIndex,1);
         this.bullets.splice(bulletIndex,1);
         this.score += 100;
+        this.updateMarkers(this.player.lives, this.score)
         console.log(this.score);
       }
     });
@@ -117,6 +120,10 @@ Game.prototype.checkCollisions = function(){
 
 Game.prototype.setGameOverCallBack = function(buildGameOverScreen) {
   this.buildGameOverScreen = buildGameOverScreen;
+}
+
+Game.prototype.setUpdateMarkersCallback = function(callback) {
+  this.updateMarkers = callback;
 }
 
 

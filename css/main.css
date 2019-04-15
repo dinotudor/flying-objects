@@ -41,3 +41,12 @@ h1 {
 section {
   padding: 10px;
 }
+
+.points, .lives{
+  position: absolute;
+  top: 0;
+}
+
+.points {
+  right: 0;
+}
