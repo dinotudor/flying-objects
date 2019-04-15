@@ -19,7 +19,7 @@ Game.prototype.startLoop = function () {
     
     const loop = () => {
 
-      if(Math.random() > 0.98){
+      if(Math.random() > 0.99){
         const randomNumber = (Math.random() * this.canvas.width - 15) + 15;
         this.enemies.push(new Enemy(this.canvas, randomNumber))
       }
@@ -65,11 +65,24 @@ Game.prototype.drawCanvas = function () {
   });
 }
 
+Game.prototype.clearEnemy = function (enemy){
+  // filter
+  //const enemiesFiltered = this.enemies.filter( (enemy) => {
+    return (enemy.y + enemy.size) > this.canvas.height;
+  //})
+  // this.enemies = enemiesFiltered;
+}
+
+/* Game.prototype.clearShots = function (){
+
+} */
+
 Game.prototype.checkCollisions = function(){
   this.enemies.forEach((enemy, index) => {
     const isColliding = this.player.checkCollisionWithEnemy(enemy);
+    const isOutOfScreen = this.clearEnemy(enemy);
+    
     if (isColliding) {
-      
       this.enemies.splice(index,1);
       this.player.setLives();
       if (this.player.lives === 0){
@@ -77,6 +90,12 @@ Game.prototype.checkCollisions = function(){
         this.buildGameOverScreen();
       }
       console.log(this.player.lives);
+    }
+
+    if (isOutOfScreen) {
+      let removed = this.enemies.splice(index,1);      
+      console.log('removed', removed);
+      
     }
   })
 }
