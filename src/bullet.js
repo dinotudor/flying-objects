@@ -7,7 +7,7 @@ function Bullet(canvas, x) {
   this.ctx = this.canvas.getContext('2d');
   this.size = 5;
   this.x = x;
-  this.y = 0 - this.size/2;
+  this.y = this.canvas.height-50;
 }
 
 Bullet.prototype.draw = function(){
@@ -16,5 +16,5 @@ Bullet.prototype.draw = function(){
 }
 
 Bullet.prototype.update = function(){
-  this.y = this.y - this.direction * this.speed
+  this.y = this.y + this.direction * this.speed
 }
