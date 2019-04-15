@@ -5,6 +5,7 @@ function Game (canvas) {
   this.ctx = this.canvas.getContext('2d');
   this.player = null;
   this.enemies = [];
+  this.bullets = [];
   this.bullet = null;
   this.isGameOver = false;
 }
@@ -34,6 +35,10 @@ Game.prototype.startLoop = function () {
     } 
 
     window.requestAnimationFrame(loop)
+}
+
+Game.prototype.shoot = function (){
+  this.bullets.push(new Bullet (this.canvas, this.player.x))
 }
 
 Game.prototype.clearCanvas = function (){

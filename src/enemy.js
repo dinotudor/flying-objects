@@ -12,7 +12,7 @@ function Enemy (canvas, x) {
 
 Enemy.prototype.draw = function(){
   this.ctx.fillStyle = 'red';
-  this.ctx.fillRect(this.x, this.y, this.size, this.size);
+  this.ctx.fillRect(this.x - this.size/2, this.y - this.size/2, this.size, this.size);
 }
 
 Enemy.prototype.update = function(){

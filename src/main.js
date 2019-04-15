@@ -57,6 +57,14 @@ function main () {
         game.player.move(0);
       }
   })
+
+  addEventListener('keydown', function(event) {
+    if (event.keyCode === 32) {
+    console.log('SHOOT');
+      game.shoot();
+    }
+  });
+  
   
 
 
