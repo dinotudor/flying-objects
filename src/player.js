@@ -3,18 +3,20 @@
 function Player (canvas) {
   this.lives = 3;
   this.canvas = canvas;
-  this.size = 50;
+  this.height = 75;
+  this.width = 100;
   this.x = this.canvas.width/2;
   this.y = this.canvas.height-50;
   this.ctx = this.canvas.getContext('2d');
   this.speed = 8;
   this.direction = 0;
+  this.img = document.getElementById('hero');
 }
 
 Player.prototype.draw = function(){
-  this.ctx.fillStyle = 'white';
-  this.ctx.fillRect(this.x - this.size/2, this.y-this.size/2, this.size, this.size);
-  this.ctx.drawImage()
+  //this.ctx.fillStyle = 'white';
+  //this.ctx.fillRect(this.x - this.size/2, this.y-this.size/2, this.size, this.size);
+  this.ctx.drawImage(this.img, this.x - this.width/2, this.y-this.height/2, this.width, this.height);
 } 
 
 Player.prototype.update = function () {  
@@ -30,10 +32,10 @@ Player.prototype.setLives = function(){
 }
 
 Player.prototype.checkCollisionWithEnemy = function(enemy){
-  const collisionRigth = this.x + this.size/2 > enemy.x - enemy.size/2;
-  const collisionLeft = this.x - this.size/2 < enemy.x + enemy.size/2;
-  const collisionTop = this.y - this.size/2 < enemy.y + enemy.size/2;
-  const collisionBottom = this.y + this.size/2 > enemy.y - enemy.size/2;
+  const collisionRigth = this.x + this.width/2 > enemy.x - enemy.size/2;
+  const collisionLeft = this.x - this.width/2 < enemy.x + enemy.size/2;
+  const collisionTop = this.y - this.height/2 < enemy.y + enemy.size/2;
+  const collisionBottom = this.y + this.height/2 > enemy.y - enemy.size/2;
 
   return collisionRigth && collisionLeft && collisionTop && collisionBottom;
 }

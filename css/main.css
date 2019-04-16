@@ -43,10 +43,15 @@ section {
 }
 
 .points, .lives{
+  padding: 20px;
   position: absolute;
   top: 0;
 }
 
 .points {
   right: 0;
+}
+
+#hero, #enemy {
+  display: none;
 }
