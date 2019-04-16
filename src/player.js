@@ -32,10 +32,10 @@ Player.prototype.setLives = function(){
 }
 
 Player.prototype.checkCollisionWithEnemy = function(enemy){
-  const collisionRigth = this.x + this.width/2 > enemy.x - enemy.size/2;
-  const collisionLeft = this.x - this.width/2 < enemy.x + enemy.size/2;
-  const collisionTop = this.y - this.height/2 < enemy.y + enemy.size/2;
-  const collisionBottom = this.y + this.height/2 > enemy.y - enemy.size/2;
+  const collisionRigth = this.x + this.width/2 > enemy.x - enemy.width/2;
+  const collisionLeft = this.x - this.width/2 < enemy.x + enemy.width/2;
+  const collisionTop = this.y - this.height/2 < enemy.y + enemy.height/2;
+  const collisionBottom = this.y + this.height/2 > enemy.y - enemy.height/2;
 
   return collisionRigth && collisionLeft && collisionTop && collisionBottom;
 }

@@ -68,7 +68,7 @@ Game.prototype.drawCanvas = function () {
 }
 
 Game.prototype.clearEnemy = function (enemy){
-    return (enemy.y + enemy.size) > this.canvas.height;
+    return (enemy.y + enemy.height) > this.canvas.height;
 }
 
 Game.prototype.clearShots = function (bullet){
