@@ -24,7 +24,9 @@ Player.prototype.update = function () {
 }
 
 Player.prototype.move = function (newDirection) {
-  this.direction = newDirection;
+  if (!this.checkLimits(newDirection)) {
+    this.direction = newDirection;
+  }
 }
 
 Player.prototype.setLives = function(){
@@ -40,3 +42,6 @@ Player.prototype.checkCollisionWithEnemy = function(enemy){
   return collisionRigth && collisionLeft && collisionTop && collisionBottom;
 }
 
+Player.prototype.checkLimits = function(direction){
+  return (this.x - this.width/2 < 0 && direction === -1|| this.x + this.width/2 > this.canvas.width && direction === 1)
+}

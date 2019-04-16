@@ -116,6 +116,11 @@ Game.prototype.checkCollisions = function(){
       console.log('remove bullet', isOutOfScreen);
     }
   });
+  if(this.player.checkLimits(this.player.direction)) {
+    this.player.direction = 0;
+  }
+    
+  
 }
 
 Game.prototype.setGameOverCallBack = function(buildGameOverScreen) {
