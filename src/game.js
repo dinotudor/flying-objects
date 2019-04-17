@@ -13,7 +13,7 @@ function Game (canvas) {
 }
 
 Game.prototype.startLoop = function () {
-    console.log('HELLO!')
+    //console.log('HELLO!')
     this.player = new Player(this.canvas);
 /*     for (var i =0; i<10; i++) {
       this.enemies.push(new Enemy(this.canvas, i*50));
@@ -87,9 +87,10 @@ Game.prototype.checkCollisions = function(){
       this.updateMarkers(this.player.lives, this.score)
       if (this.player.lives === 0){
         this.isGameOver = true;
-        this.buildGameOverScreen();
+        this.buildGameOverScreen(this.score);
+        this.updateMarkers(this.score);
       }
-      console.log(this.player.lives);
+      //console.log(this.player.lives);
     }
 
     if (isOutOfScreen) {
@@ -103,7 +104,7 @@ Game.prototype.checkCollisions = function(){
         this.bullets.splice(bulletIndex,1);
         this.score += 100;
         this.updateMarkers(this.player.lives, this.score)
-        console.log(this.score);
+        //console.log(this.score);
       }
     });
 
@@ -113,7 +114,7 @@ Game.prototype.checkCollisions = function(){
     const isOutOfScreen = this.clearShots(bullet);
     if (isOutOfScreen) {
       this.bullets.splice(index, 1);
-      console.log('remove bullet', isOutOfScreen);
+      //console.log('remove bullet', isOutOfScreen);
     }
   });
   if(this.player.checkLimits(this.player.direction)) {

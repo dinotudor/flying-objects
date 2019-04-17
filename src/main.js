@@ -80,24 +80,36 @@ function main () {
 
   }
   
-  
-
 
 
 /*     const gameOverTest = document.querySelector('#game-over-test');
     gameOverTest.addEventListener('click', buildGameOverScreen); */
   }
 
-  function buildGameOverScreen () {
+  function buildGameOverScreen (score) {
     const gameOverScreen = buildDom(`
     <section class="game-container">
       <div class="over">
-        <h1>Game Over</h1>
-        <button class="restart-button">Play Again</button><br />
-        <button class="splash-screen">Initial Screen</button>
+        <h1>game over</h1>
+        <p>SCORE => ${score}</p>
+        <button class="restart-button">play Again</button><br />
+        <button class="splash-screen">initial Screen</button>
+        
       </div>    
     </section>
     `);
+
+
+    //const endScore = document.querySelector('.end-score')
+    
+    //game.setUpdateMarkersCallback(endScore);
+
+    //function endScore(points){
+    //  endScore.innerHTML = points;
+    //}
+
+
+
 
     const restartButton = document.querySelector('.restart-button');
     const initialScreen = document.querySelector('.splash-screen');
