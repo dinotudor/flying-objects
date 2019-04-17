@@ -99,18 +99,6 @@ function main () {
     </section>
     `);
 
-
-    //const endScore = document.querySelector('.end-score')
-    
-    //game.setUpdateMarkersCallback(endScore);
-
-    //function endScore(points){
-    //  endScore.innerHTML = points;
-    //}
-
-
-
-
     const restartButton = document.querySelector('.restart-button');
     const initialScreen = document.querySelector('.splash-screen');
     restartButton.addEventListener('click', buildGameScreen);
