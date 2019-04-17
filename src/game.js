@@ -10,6 +10,11 @@ function Game (canvas) {
   this.isGameOver = false;
   this.score = 0;
   this.updateMarkers = null;
+  this.hitEnemyFx = new Audio('sound/xplode.wav');
+  this.looseLifeFx = new Audio('sound/life2.wav');
+  this.shootFx = new Audio('sound/shot.wav');
+  this.looseFx = new Audio('sound/loose.wav');
+  /* this.starBtn = new Audio('sound/start.wav'); */
 }
 
 Game.prototype.startLoop = function () {
@@ -83,10 +88,12 @@ Game.prototype.checkCollisions = function(){
     
     if (isColliding) {
       this.enemies.splice(enemyIndex,1);
+      this.looseLifeFx.play();
       this.player.setLives();
       this.updateMarkers(this.player.lives, this.score)
       if (this.player.lives === 0){
         this.isGameOver = true;
+        this.looseFx.play();
         this.buildGameOverScreen(this.score);
         this.updateMarkers(this.score);
       }
@@ -100,6 +107,7 @@ Game.prototype.checkCollisions = function(){
     this.bullets.forEach((bullet, bulletIndex) => {
       const isHitEnemy = enemy.checkHitByBullet(bullet);
       if (isHitEnemy) {
+        this.hitEnemyFx.play();
         this.enemies.splice(enemyIndex,1);
         this.bullets.splice(bulletIndex,1);
         this.score += 100;
