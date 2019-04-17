@@ -107,6 +107,7 @@ Game.prototype.checkCollisions = function(){
     this.bullets.forEach((bullet, bulletIndex) => {
       const isHitEnemy = enemy.checkHitByBullet(bullet);
       if (isHitEnemy) {
+        this.hitEnemyFx.currentTime=0;
         this.hitEnemyFx.play();
         this.enemies.splice(enemyIndex,1);
         this.bullets.splice(bulletIndex,1);
