@@ -1,16 +1,52 @@
 body{
   font-family: 'Press Start 2P', cursive;
-  margin: 5px;
+  height: 100vh;
+  margin: 0px;
   padding: 0;
+  /* background: left 0 top 0 / 100% 100% no-repeat url('./../img/tv-black2.png'); */
+  display: flex;
 }
 
-.game-container {
-  text-align: center;
-  background: #000;
-  width: 98%;
-  height: 90vh;
-  border: 1px solid #fff;
+.background {
+  margin: auto;
+  position: relative;
+  height: 100vh;
+  width: auto;
 }
+
+
+.splash {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+}
+
+.over {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+
+.game-container {
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 80px;
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  height: 65vh;
+  width: 46%;
+  /* border: 1px solid red; */
+}
+
+#overlay {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,0,0,0.32);
+}
+
 p {
   color: #fff;
   font-size: 0.8rem;
@@ -33,7 +69,6 @@ button {
 } */
 
 h1 {
-  background: #000;
   color: #fff;
 }
 

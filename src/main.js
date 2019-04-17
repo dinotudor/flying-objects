@@ -12,17 +12,18 @@ function main () {
   function buildSplashScreen () {
     const splashScreen = buildDom(`
     <section class="game-container">
-      <h1>SHOOT THE OBJECTS</h1>
-      <button class="start-button">START GAME</button>
-      <p>'< left arrow '  '> right arrow' 'space bar shoot'</p>  
+      <div class="splash">
+        <h1>SHOOT THE OBJECTS</h1>
+        <button class="start-button">START GAME</button>
+        <p>'< left arrow '  '> right arrow' 'space bar shoot'</p>  
+      </div>
     </sectin>
       `);
     
     const startButton = document.querySelector('.start-button');
 
     startButton.addEventListener( 'click', buildGameScreen);
-    
-
+  
   }
 
   function buildGameScreen (){
@@ -90,9 +91,11 @@ function main () {
   function buildGameOverScreen () {
     const gameOverScreen = buildDom(`
     <section class="game-container">
-      <h1>Game Over</h1>
-      <button class="restart-button">Play Again</button><br />
-      <button class="splash-screen">Initial Screen</button>
+      <div class="over">
+        <h1>Game Over</h1>
+        <button class="restart-button">Play Again</button><br />
+        <button class="splash-screen">Initial Screen</button>
+      </div>    
     </section>
     `);
 
