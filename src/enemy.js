@@ -18,8 +18,8 @@ Enemy.prototype.draw = function(){
   this.ctx.drawImage(this.img, this.x - this.width/2, this.y - this.width/2, 100, 75);
 }
 
-Enemy.prototype.update = function(){
-  this.y = this.y + this.direction * this.speed;
+Enemy.prototype.update = function(gameSpeed){
+  this.y = this.y + this.direction * (this.speed * gameSpeed);
 }
 
 Enemy.prototype.checkHitByBullet = function(bullet){

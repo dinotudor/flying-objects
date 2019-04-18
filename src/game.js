@@ -15,6 +15,9 @@ function Game (canvas) {
   this.shootFx = new Audio('sound/shot.wav');
   this.looseFx = new Audio('sound/loose.wav');
   this.soundTrack = new Audio('sound/soundTrack.mp3');
+  this.level = 1;
+  this.gameSpeed = 1;
+
 }
 
 Game.prototype.startLoop = function () {
@@ -53,9 +56,11 @@ Game.prototype.clearCanvas = function (){
 }
 
 Game.prototype.updateCanvas = function () {
+  let gameSpeed = this.gameSpeed;
+
   this.player.update();
   this.enemies.forEach(function(enemy){
-    enemy.update();
+    enemy.update(gameSpeed);
   });
   this.bullets.forEach(function(bullet) {
     bullet.update();
@@ -80,6 +85,16 @@ Game.prototype.clearShots = function (bullet){
     return (bullet.y - bullet.size) < 0; 
 }
 
+Game.prototype.updateLevel = function () {
+  if (this.score % 1000 === 0) {
+    this.level++;
+    this.gameSpeed += 0.3;
+    console.log("level", this.level);
+    console.log("gameSpeed", this.gameSpeed);
+    
+  }
+}
+
 Game.prototype.checkCollisions = function(){
   this.enemies.forEach((enemy, enemyIndex) => {
     const isColliding = this.player.checkCollisionWithEnemy(enemy);
@@ -90,7 +105,7 @@ Game.prototype.checkCollisions = function(){
       this.enemies.splice(enemyIndex,1);
       this.looseLifeFx.play();
       this.player.setLives();
-      this.updateMarkers(this.player.lives, this.score)
+      this.updateMarkers(this.player.lives, this.score);
       if (this.player.lives === 0){
         this.isGameOver = true;
         this.looseFx.play();
@@ -114,7 +129,8 @@ Game.prototype.checkCollisions = function(){
         this.enemies.splice(enemyIndex,1);
         this.bullets.splice(bulletIndex,1);
         this.score += 100;
-        this.updateMarkers(this.player.lives, this.score)
+        this.updateLevel();
+        this.updateMarkers(this.player.lives, this.score);
         //console.log(this.score);
       }
     });
