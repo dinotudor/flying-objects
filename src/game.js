@@ -14,7 +14,7 @@ function Game (canvas) {
   this.looseLifeFx = new Audio('sound/life3.wav');
   this.shootFx = new Audio('sound/shot.wav');
   this.looseFx = new Audio('sound/loose.wav');
-  /* this.starBtn = new Audio('sound/start.wav'); */
+  this.soundTrack = new Audio('sound/soundTrack.mp3');
 }
 
 Game.prototype.startLoop = function () {
