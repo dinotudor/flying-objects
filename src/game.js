@@ -89,8 +89,6 @@ Game.prototype.updateLevel = function () {
   if (this.score % 1000 === 0) {
     this.level++;
     this.gameSpeed += 0.3;
-    console.log("level", this.level);
-    console.log("gameSpeed", this.gameSpeed);
     
   }
 }
