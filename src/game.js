@@ -94,6 +94,8 @@ Game.prototype.checkCollisions = function(){
       if (this.player.lives === 0){
         this.isGameOver = true;
         this.looseFx.play();
+        this.soundTrack.pause();
+        this.soundTrack.currentTime=0;
         this.buildGameOverScreen(this.score);
         this.updateMarkers(this.score);
       }

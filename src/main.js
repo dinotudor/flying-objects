@@ -49,6 +49,7 @@ function main () {
     const game = new Game(canvasElement);
     game.startLoop();
     game.soundTrack.play();
+    game.soundTrack.loop=true;
     game.setGameOverCallBack(buildGameOverScreen);
     game.setUpdateMarkersCallback(updateMarkers);
 
