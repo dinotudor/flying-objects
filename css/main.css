@@ -28,6 +28,25 @@ body{
   left: 30%;
 }
 
+.over h1 {
+  animation-name: h1Animation;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+    
+@keyframes h1Animation {
+  0%, 100% {
+  opacity: 0.3;
+  transform: scale(1.0);
+  -webkit-transform: scale(1.0);
+}
+50% {
+  opacity: 1;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+}
+}
+
 
 .game-container {
   margin: auto;

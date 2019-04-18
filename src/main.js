@@ -30,8 +30,8 @@ function main () {
     
     const gameScreen = buildDom(`
     <section class="game-container">
-        <p class="points">0</p>
-        <p class="lives">3</p>
+        <p class="points">SCORE 0</p>
+        <p class="lives">3 &hearts;</p>
       <canvas></canvas>
     </section>  
     `);
@@ -79,8 +79,8 @@ function main () {
 
 
   function updateMarkers(lives, points) {
-    livesElemtn.innerHTML = lives;
-    pointsElement.innerHTML = points;
+    livesElemtn.innerHTML = lives + ' &hearts;';
+    pointsElement.innerHTML = 'SCORE ' + points;
 
   }
   
