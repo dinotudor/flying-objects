@@ -69,6 +69,7 @@ function main () {
     if (event.keyCode === 32) {
     console.log('SHOOT');
       game.shoot();
+      game.shootFx.currentTime = 0;
       game.shootFx.play();
     }
   });
