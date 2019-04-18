@@ -11,7 +11,7 @@ function Game (canvas) {
   this.score = 0;
   this.updateMarkers = null;
   this.hitEnemyFx = new Audio('sound/xplode.wav');
-  this.looseLifeFx = new Audio('sound/life2.wav');
+  this.looseLifeFx = new Audio('sound/life3.wav');
   this.shootFx = new Audio('sound/shot.wav');
   this.looseFx = new Audio('sound/loose.wav');
   /* this.starBtn = new Audio('sound/start.wav'); */
