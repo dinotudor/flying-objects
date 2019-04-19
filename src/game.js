@@ -86,7 +86,7 @@ Game.prototype.clearShots = function (bullet){
 }
 
 Game.prototype.updateLevel = function () {
-  if (this.score % 1000 === 0) {
+  if (this.score % 600 === 0) {
     this.level++;
     this.gameSpeed += 0.3;
     
